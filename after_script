@@ -7,5 +7,6 @@ pwd
 sudo bash -c env
 uname -a
 #########################
+echo hello
 #########################
 date

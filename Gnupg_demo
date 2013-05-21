@@ -10,3 +10,5 @@ gpg tt.c.gpg
 cat tt.c
 gpg -ao keyfile --export Larry
 cat keyfile
+gpg -ao secret_keyfile --export-secret-key Larry
+od -c secret_keyfile | less

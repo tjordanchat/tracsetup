@@ -18,7 +18,6 @@ gpg –allow-secret-key-import –import ~/larrys_secret.gpg
 #AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 
 gpg -e -r DWH loandata.xml
-od -c tt.c.gpg
 sftp DWH <<EOF
 put loandata.xml.gpg
 EOF

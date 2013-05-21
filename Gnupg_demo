@@ -1,0 +1,12 @@
+gpg --gen-key
+gpg --armor --recipient Bob --encrypt --sign tt.c
+gpg --gen-key
+gpg --list-keys
+gpg -e -r Larry tt.c
+od -c tt.c.gpg
+cp tt.c.gpg tmp
+cd tmp
+gpg tt.c.gpg
+cat tt.c
+gpg -ao keyfile --export Larry
+cat keyfile

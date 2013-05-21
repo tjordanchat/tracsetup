@@ -1,11 +1,20 @@
-gpg --gen-key
-gpg --armor --recipient Bob --encrypt --sign tt.c
-gpg --gen-key
-gpg --list-keys
-gpg -e -r Larry tt.c
-od -c tt.c.gpg
-cp tt.c.gpg tmp
-cd tmp
+$ gpg --gen-key # Marry
+$ gpg --gen-key # Larry
+$ gpg --armor --recipient Larry --encrypt --sign tt.c
+$ gpg --list-keys
+$ vi tt.c 
+#include <stdio.h>
+
+float o=0.075, h=1.5, T, r, O, l, I;
+int _, L=80, s=3200;
+
+main() {
+        for(;s%L||(h-=o,T= -2),s;4 -(r=O*O)<(l=I*I)|++_==L&&write(1,(--s%L?_<L?--_ %6:6:7)+"123456 \n",1)&&(O=I=l=_=r=0,T+=o/2)) O=I*2*O+h,I=l+T-r;
+}
+$ gpg -e -r Larry tt.c
+$ od -c tt.c.gpg
+$ cp tt.c.gpg tmp
+$ cd tmp
 gpg tt.c.gpg
 cat tt.c
 gpg -ao keyfile --export Larry

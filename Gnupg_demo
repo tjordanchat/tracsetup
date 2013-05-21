@@ -1,14 +1,29 @@
+# generate the keys
 gpg --gen-key # Sasha
 gpg --gen-key # Larry
-gpg --list-keys
-gpg -ao Sashas_pub --export Sasha
-gpg -ao Larrys_pub --export Larry
-gpg -ao Larrys_secret --export-secret-key Larry
-gpg -ao Sashas_secret --export-secret-key Sasha
-vi tt.c
-gpg -e -r Larry tt.c
+
+# keep these files for a re-import if needed
+gpg -ao sashas_pub --export Sasha
+gpg -ao larrys_pub --export Larry
+
+# these files get mailed to providers
+gpg –output sashas_secret.gpg –armor –export-secret-key Sasha
+gpg –output larrys_secret.gpg –armor –export-secret-key Larry
+
+# providers need to import private key
+gpg –allow-secret-key-import –import ~/sashas_secret.gpg
+gpg –allow-secret-key-import –import ~/larrys_secret.gpg
+
+
+#AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+gpg -e -r DWH loandata.xml
 od -c tt.c.gpg
-cp tt.c.gpg tmp
-cd tmp
-gpg tt.c.gpg
-ls -l tt.c
+sftp DWH <<EOF
+put loandata.xml.gpg
+EOF
+
+#VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+
+gpg loandata.xml.gpg
+ls -l loandata.xml

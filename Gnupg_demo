@@ -21,7 +21,7 @@ gpg –allow-secret-key-import –import ~/larrys_secret.gpg
 # This they will do evey month
 
     gpg -e -r DWH loandata.xml
-    sftp put loandata.xml.gpg # they had to do this anyway
+    sftp put loandata.xml.gpg       # They had to do this anyway.
 
 ######################################
 # We do to validate and decrypt the file

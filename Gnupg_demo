@@ -15,7 +15,9 @@ gpg –output sashas_secret.gpg –armor –export-secret-key Sasha
 gpg –output larrys_secret.gpg –armor –export-secret-key Larry
 
 ###########################################
-# providers need to import private key
+# providers need to import keys
+
+gpg --import dwhouse_pub
 
 gpg –allow-secret-key-import –import ~/sashas_secret.gpg
 gpg –allow-secret-key-import –import ~/larrys_secret.gpg

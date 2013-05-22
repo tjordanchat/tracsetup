@@ -1,11 +1,14 @@
 #########################################
 # generate the keys
 
+gpg --gen-key # DWHouse
 gpg --gen-key # Sasha
 gpg --gen-key # Larry
 
 ##########################################
 # these files get mailed to providers
+
+gpg -ao dwhouse_pub --export DWHouse
 
 gpg –output sashas_secret.gpg –armor –export-secret-key Sasha
 gpg –output larrys_secret.gpg –armor –export-secret-key Larry
